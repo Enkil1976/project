@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { StatusPanel } from './components/StatusPanel';
 import ChartsPanel from './components/ChartsPanel';
@@ -8,7 +8,19 @@ import { StatsPanel } from './components/StatsPanel';
 function App() {
   const [activeSection, setActiveSection] = useState('status');
 
+  useEffect(() => {
+    console.log('App montada');
+    return () => {
+      console.log('App desmontada');
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log('activeSection cambiada:', activeSection);
+  }, [activeSection]);
+
   const renderContent = () => {
+    console.log('Renderizando contenido para la sección:', activeSection);
     switch (activeSection) {
       case 'status':
         return <StatusPanel />;

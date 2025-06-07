@@ -15,8 +15,8 @@ export function HistoryPanel() {
     const fetchHistoryData = async () => {
       setLoading(true);
       try {
-        const result = await ApiService.getHistoryData(activeTable);
-        setData(result || []);
+        const result = await ApiService.getHistory(activeTable, 1, 100);
+        setData(result.data || []);
         setCurrentPage(1);
       } catch (error) {
         console.error('Error fetching history data:', error);

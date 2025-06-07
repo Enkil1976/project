@@ -14,12 +14,13 @@ export function StatsPanel() {
       setLoading(true);
       try {
         const [stats1, stats2] = await Promise.all([
-          ApiService.getStatsData('temhum1'),
-          ApiService.getStatsData('temhum2')
+          ApiService.getStats('temhum1'),
+          ApiService.getStats('temhum2')
         ]);
 
-        setTemhum1Stats(stats1 || []);
-        setTemhum2Stats(stats2 || []);
+        // La API devuelve { days: number, stats: Array }
+        setTemhum1Stats(Array.isArray(stats1?.stats) ? stats1.stats : []);
+        setTemhum2Stats(Array.isArray(stats2?.stats) ? stats2.stats : []);
       } catch (error) {
         console.error('Error fetching stats data:', error);
       }
