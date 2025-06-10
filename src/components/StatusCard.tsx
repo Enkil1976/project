@@ -6,9 +6,9 @@ interface StatusCardProps {
   title: string;
   value: number;
   unit: string;
-  icon: typeof LucideIcon;
+  icon: LucideIcon;
   range?: { min: number; max: number };
-  timestamp?: Date;
+  timestamp?: string;
   className?: string;
 }
 
@@ -67,7 +67,7 @@ export function StatusCard({
         
         {timestamp && (
           <div className="text-xs text-gray-400 mt-2">
-            Última actualización: {timestamp ? timestamp.toLocaleString('es-CL') : 'N/A'}
+            Última actualización: {timestamp}
           </div>
         )}
       </div>
