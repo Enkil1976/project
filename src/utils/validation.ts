@@ -36,7 +36,7 @@ export function formatDateTime(dateString: string): string {
 
 export function formatTime(dateString: string): string {
   const date = new Date(dateString);
-  return date.toLocaleTimeString('es-ES', {
+  return date.toLocaleTimeString('es-CL', {
     hour: '2-digit',
     minute: '2-digit'
   });
