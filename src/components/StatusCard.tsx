@@ -67,7 +67,7 @@ export function StatusCard({
         
         {timestamp && (
           <div className="text-xs text-gray-400 mt-2">
-            Última actualización: {timestamp}
+            Última actualización: {timestamp.toLocaleString('es-CL')}
           </div>
         )}
       </div>
