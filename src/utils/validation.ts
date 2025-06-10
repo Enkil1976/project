@@ -3,9 +3,9 @@ import { AlertRange } from '../types';
 export const ALERT_RANGES: AlertRange = {
   temperatura: { min: 18, max: 25 },
   humedad: { min: 50, max: 70 },
-  ph: { min: 5.5, max: 6.5 },
+  ph: { min: 5.8, max: 6.2 },
   ec: { min: 800, max: 1500 },
-  ppm: { min: 400, max: 750 }
+  ppm: { min: 1700, max: 1900 }
 };
 
 export function isValueInRange(value: number, range: { min: number; max: number }): boolean {
@@ -25,7 +25,7 @@ export function getAlertLevel(value: number, range: { min: number; max: number }
 
 export function formatDateTime(dateString: string): string {
   const date = new Date(dateString);
-  return date.toLocaleString('es-ES', {
+  return date.toLocaleString('es-CL', {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
